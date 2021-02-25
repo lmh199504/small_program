@@ -1,0 +1,105 @@
+<!--pages/playMusic/playMusic.wxml-->
+
+<view class="header">
+  <view class="music_name">{{currentSong.title}}</view>
+  <view class="music_singer">{{currentSong.singer && currentSong.singer[0].name }}</view>
+</view>
+<view class="music_cover" wx:if="{{isMusicCover}}" bindtap='changeCover'>
+  <image src="{{currentSong.cover}}" id="xuanzhun"></image>
+</view>
+
+
+<view class="music_Lyric" wx:if="{{!isMusicCover}}" bindtap='changeCover'>
+  <scroll-view style="height:100%;width:100%;" >
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+    <view>我是歌词列表</view>
+  </scroll-view>
+  
+
+</view>
+
+<view class="menu_container" >
+  <view class="top_menu_container" wx:if="{{isMusicCover}}">
+    <view class="top_menu_item">
+      <image src="../../src/images/like.png" style="width:20px;height:20px;"></image>
+    
+    </view>
+    <view class="top_menu_item" bindtap="downMusic">
+      <image src="../../src/images/download.png"></image>
+    
+    </view>
+    <view class="top_menu_item">
+      <image src='../../src/images/fish.png'></image>
+    
+    </view>
+    <view class="top_menu_item">
+      <image src='../../src/images/message.png'></image>
+    
+    </view>
+    <view class="top_menu_item">
+      <image src="../../src/images/more.png"></image>
+    </view>
+  
+  </view>
+
+
+  <view class="progress_container">
+      <view style="width:10%;"><text class="current_tiem">{{currentTime}}</text></view>
+      <view style="width:80%; padding:10px;box-sizing:border-box;"><progress stroke-width="1" border-radius="2" percent="{{progress}}"></progress></view>
+      <view style="width:10%;"><text class="duration_time">{{duration}}</text></view>  
+  </view>
+
+
+
+  <view class="play_menu_container">
+    <view class="play_menu_item">
+      <image src="{{currentModeImg}}" bindtap='changeMode'></image>
+    </view>
+    <view class="play_menu_item">
+      <image src="../../src/images/prev.png" bindtap='prevMusic'></image>
+    </view>
+    <view class="play_menu_item" bindtap='playMusic'>
+      <image src="{{ !isPlayMusic ?'../../src/images/pause.png':'../../src/images/play.png'}}" style="width:40px;height:40px;margin-top:-10px;"></image>
+    </view>
+    <view class="play_menu_item">
+      <image src="../../src/images/next.png" bindtap='nextMusic'></image>
+    </view>
+    <view class="play_menu_item">
+      <image src="../../src/images/playlist.png"></image>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- //背景 -->
+<view class="mask"></view>
+<view class="background_img">
+  <image src="{{bgCover}}" style="width:100%;height:100%;"></image>
+</view>

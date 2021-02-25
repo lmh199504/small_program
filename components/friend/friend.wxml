@@ -1,0 +1,11 @@
+<!--components/friend/friend.wxml-->
+<scroll-view scroll-y class="scroll_view" bindscrolltolower="bindscrolltolower">
+  <view class="scorll_container">
+    <view wx:for="{{ singerList }}" class="singer_item">
+      <navigator url="../../pages/singerDetail/singerDetail?singerMid={{ item.singer_mid }}&singer_name={{ item.singer_name }}&singer_pic={{ item.singer_pic }}">
+        <image src="{{item.singer_pic}}"></image>
+        <view class="singer_name">{{item.singer_name}}</view>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>

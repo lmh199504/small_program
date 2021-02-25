@@ -1,0 +1,16 @@
+<view class="mycontainer">
+  <scroll-view scroll-y class="scroll_view_y">
+    <view class="scroll_container">
+      <view class="topItem" wx:for="{{ toplist }}">
+        <view class="left">
+          <image src="{{ item.frontPicUrl }}"></image>
+        </view>
+        <view class="right">
+          <view wx:for="{{ item.song }}">
+            <view class="songInfo">{{ item.rank }}、{{ item.title }}-{{ item.singerName }} </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

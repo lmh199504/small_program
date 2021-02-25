@@ -1,0 +1,24 @@
+<view class="mycontainer">
+  <scroll-view scroll-x="true" class="scroll_view_x">
+    <button class="mini-btn" type="{{ item.type === activeNav ? 'primary':'default' }}" size="mini" wx:for="{{ nav }}" bindtap="clickNav" data-type="{{item.type}}">{{ item.name }}</button>
+  </scroll-view>
+  <scroll-view class="scroll_view_y" scroll-y="true">
+    <view class="musicList_container_head" bindtap='playAll'>
+      <view style="width:20px;height:20px;" >
+        <image src="../../src/images/play2.png" style="width:100%;height:100%;"></image>
+      </view> 
+      <view style="margin-left:8px;color:rgb(125, 126, 128);font-size:12px;line-height:20px;">
+        <text>播放全部</text>
+      </view> 
+    </view>
+    <view class="music_list_container">
+      <view class="music_list_item" wx:for="{{songlist}}">
+        <image class="cover_img"
+          src="{{ 'https://y.gtimg.cn/music/photo_new/T002R90x90M000'+item.album.mid+'.jpg?max_age=2592000' }}">
+        </image>
+        <text class="list_title">{{item.title}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>

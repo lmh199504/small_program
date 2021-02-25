@@ -1,0 +1,68 @@
+/* components/search/search.wxss */
+.mycontaoner{
+  height: 100%;
+}
+.searchBox{
+  height: 100%;
+}
+.searchData{
+  width: 90%;
+  height: 40px;
+  border: 1px solid #777;
+  margin-left: 5%;
+  border-radius: 10px;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.result_box{
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid #d9d9d9;
+  padding: 15rpx;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+  background: #ffffff;
+}
+.box_title{
+  color: #999;
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.song_item{
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+
+.singer_pic{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.singer_item{
+  display: flex;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.singer_name{
+  margin-left: 15rpx;
+}
+.hotKey{
+  position: absolute;
+  top: 60px;
+  z-index: -1;
+  width: 90%;
+  padding-left: 5% ;
+}
+.hot_item{
+  line-height: 60rpx;
+}
+.hot_index{
+  color: #fe4222;
+  display: inline-block;
+  margin-right: 10px;
+}
+.hot_num{
+  float: right;
+  color: #999;
+}

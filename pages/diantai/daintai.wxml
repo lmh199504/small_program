@@ -1,0 +1,19 @@
+<view class="mycontainer">
+  <scroll-view scroll-y class="scroll_view_y" refresher-enabled="true">
+    <view class="radio_container">
+      <view wx:for="{{ radioList }}">
+        <view class="radioType">
+          {{ item.name }}
+        </view>
+        <view class="radio_wrapper">
+          <view class="radio_item" wx:for="{{ item.radioList }}">
+            <image src="{{ item.radioImg }}"></image>
+            <view class="radioName">{{ item.radioName }}</view>
+            <wxs src="../../utils/filter.wxs" module="filter"/>
+            <view class="listenNum">收听：{{ filter.formatNum(item.listenNum) }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

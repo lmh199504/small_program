@@ -1,0 +1,125 @@
+<!--index.wxml-->
+
+
+
+<view style="height:100%">
+  <view class="swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">首页</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">发现</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">朋友</view>
+    <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">视频</view>
+  </view>
+
+
+  <!--内容主体-->
+
+
+  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChangeTabbar">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scroll_view">
+        <view class="slider">
+          <swiper autoplay='true' circular='true' indicator-dots='true'>
+            <swiper-item wx:for="{{focus}}" wx:key="{{index}}" class="swiper_item">
+              <navigator>
+                <image src="{{item.pic_info.url}}"></image>
+              </navigator>
+            </swiper-item>
+          </swiper>
+        </view>
+        <view class="mycontainer">
+          <view class="main_menu">
+            <view class="main_menu_item">
+              <navigator url="../meiri/meiri">
+                <view>
+                  <image src="../../src/images/rili.png"></image>
+                </view>
+                <view>
+                  <text class="main_menu_item_title">新歌</text>
+                </view>
+              </navigator>
+            </view>
+            <view class="main_menu_item">
+              <navigator url="../gedan/gedan">
+                <view>
+                  <image src="../../src/images/yinyue.png"></image>
+                </view>
+                <view>
+                  <text class="main_menu_item_title">歌单</text>
+                </view>
+              </navigator>
+            </view>
+            <view class="main_menu_item">
+              <navigator url="../paihang/paihang">
+                <view>
+                  <image src="../../src/images/paihang.png"></image>
+                </view>
+                <view>
+                  <text class="main_menu_item_title">排行榜</text>
+                </view>
+              </navigator>
+            </view>
+            <view class="main_menu_item">
+              <navigator url="../diantai/daintai">
+                <view>
+                  <image src="../../src/images/diantai.png"></image>
+                </view>
+                <view>
+                  <text class="main_menu_item_title">电台</text>
+                </view>
+              </navigator>
+            </view>
+            <view class="main_menu_item">
+              <navigator url="../zhibo/zhibo">
+                <view>
+                  <image src="../../src/images/zhibo.png"></image>
+                </view>
+                <view>
+                  <text class="main_menu_item_title">数字专辑</text>
+                </view>
+              </navigator>
+            </view>
+          </view>
+          <official songListData='{{ {title:"官方歌单",id: -1} }}'></official>
+
+          <view>
+            <text class="title">歌曲推荐</text>
+          </view>
+          <view class="music_item" wx:for="{{ new_song }}" bindtap="playOneSong" data-songmid="{{ item.mid }}" data-item="{{ item }}">
+            <view class="music_item_left">
+              <image class="music_cover"
+                src="{{ 'https://y.gtimg.cn/music/photo_new/T002R90x90M000'+item.album.mid+'.jpg?max_age=2592000' }}">
+              </image>
+            </view>
+            <view class="music_item_right">
+              <view>
+                <text class="music_name">{{item.title}}</text>
+              </view>
+              <view>
+                <text class="music_singer">{{ item.singer[0].name }}</text>
+              </view>
+              <view class="right_icon">
+                <image src="../../src/images/right.png" style="width:15px;height:15px;"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item>
+      <search></search>
+    </swiper-item>
+
+    <swiper-item>
+      <friend></friend>
+    </swiper-item>
+    <swiper-item>
+      <videocom></videocom>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="playAudio">
+  <playAudio cover_img="{{cover_img}}" musicName="{{musicName}}" musicSinger="{{musicSinger}}"
+    isPlayMusic="{{isPlayMusic}}" bind:myevent="changeStatus"></playAudio>
+</view>

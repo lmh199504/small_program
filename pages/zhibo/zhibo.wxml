@@ -1,0 +1,21 @@
+<scroll-view scroll-y class="scroll_view">
+    <view class="scroll_wapper">
+      <swiper indicator-dots="true">
+        <swiper-item wx:for="{{ banner }}" wx:key="index">
+          <image src="{{ item.picurl }}" class="swiper_image"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="ablumcontainer"> 
+      <view class="ablum" wx:for="{{ content }}" wx:key="index">
+        <view class="ablum_box_title">{{ item.title || item.type }}</view>
+        <view class="ablum_box_list" >
+          <view class="ablum_item" wx:for="{{ item.albumlist }}" wx:key="{{ item.album_mid }}">
+            <image src="https://y.gtimg.cn/music/photo_new/T002R300x300M000{{ item.album_mid }}.jpg?max_age=2592000"></image>
+            <view class="album_name">{{ item.album_name }}</view>
+            <view class="price">￥{{ item.price }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</scroll-view>

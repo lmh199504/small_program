@@ -1,0 +1,70 @@
+<!--pages/singerDetail/singerDetail.wxml-->
+<view class="mycontainer">
+  <view class="singerInfo">
+    <image class="singer_pic" src="{{ singer_pic }}"></image> 
+    <view class="info_wrapper">
+      <view class="singer_name">{{ singer_name }}</view>
+      <view class="funNum">
+        粉丝: {{ fanNum }}
+      </view>
+      <view class="singer_basic">
+        <view class="info_basic">[简介]： {{ basic }}</view>
+        <view class="btn_basic" bindtap="checkMore">[查看更多]</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="swiper_container">
+    <view class="tab_wrapper">
+      <view class="tab_item {{ tabIndex === 0 ? 'tab_active' : '' }}" data-index="0" bindtap="swichNav">热门歌曲</view>
+      <view class="tab_item {{ tabIndex === 1 ? 'tab_active' : '' }}" data-index="1" bindtap="swichNav">专辑</view>
+      <view class="tab_item {{ tabIndex === 2 ? 'tab_active' : '' }}" data-index="2" bindtap="swichNav">视频</view>
+      <view class="tab_item {{ tabIndex === 3 ? 'tab_active' : '' }}" data-index="3" bindtap="swichNav">关于</view>
+    </view>
+
+    <swiper class="swiper" current="{{tabIndex}}" duration="200" bindchange="swiperChangeTabbar">
+      <swiper-item>
+        <scroll-view style="height:100%;" scroll-y>
+          <view class="swiper_item_container">
+            <view class="item_box" wx:for="{{ hotSong }}">
+              <image src="https://y.gtimg.cn/music/photo_new/T002R300x300M000{{ item.songInfo.album.mid }}.jpg?max_age=2592000"></image> 
+              <view class="songname">{{ item.songInfo.title }}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view style="height:100%;" scroll-y>
+          <view class="swiper_item_container">
+            <view class="item_box" wx:for="{{ albumList }}">
+              <image src="https://y.gtimg.cn/music/photo_new/T002R300x300M000{{ item.pmid }}.jpg?max_age=2592000"></image> 
+              <view class="songname">{{ item.albumName }}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view style="height:100%;" scroll-y>
+          <view class="swiper_item_container">
+            <view class="item_box" wx:for="{{ mvList }}">
+              <image src="{{ item.pic }}"></image> 
+              <view class="songname">{{ item.title }}</view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view style="height:100%;" scroll-y>
+          <view class="about">
+            {{basic}}
+          </view>
+          <view class="about">
+
+            {{ desc }}
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+</view>

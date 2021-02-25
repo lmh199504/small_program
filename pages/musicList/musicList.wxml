@@ -1,0 +1,46 @@
+<view class="mycontainer">
+  <view class="topImg">
+    <image src="{{headImg}}" style="width:100%; height:200px;" mode="widthFix"></image>
+  </view>
+  <view class="musicList_container">
+    <view class="musicList_container_head" bindtap='playAll'>
+      <view style="width:20px;height:20px;" >
+        <image src="../../src/images/play2.png" style="width:100%;height:100%;"></image>
+      </view> 
+      <view style="margin-left:8px;color:rgb(125, 126, 128);font-size:12px;line-height:20px;">
+        <text>播放全部</text>
+      </view> 
+    </view>
+
+    <scroll-view style="height:400px" scroll-y>
+    
+    
+      <view class="musicList_container_music">
+              <view class="music_item" bindtap='playThis' wx:for="{{musicList}}" data-index='{{index}}'data-song_id="{{item.song_id}}" wx:key="{{index}}">
+              <view class="music_item_left">
+                <image class="music_cover" src="{{item.cover}}"></image>
+              </view>
+              <view class="music_item_right">
+                <view>
+                  <text class="music_name">{{item.name}}</text>
+                </view>
+                <view>
+                  <text class="music_singer">{{item.singer}}</text>
+                </view> 
+                <view class="right_icon">
+                  <image src="../../src/images/right.png" style="width:15px;height:15px;"></image>
+                </view> 
+              </view>
+          </view>
+
+
+      </view>
+    
+    </scroll-view>
+
+    
+  </view>
+  <view class="playAudio">
+    <playAudio cover_img="{{cover_img}}" musicName="{{musicName}}" musicSinger="{{musicSinger}}" isPlayMusic="{{isPlayMusic}}" bind:myevent="changeStatus"></playAudio>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+<view class="mycontainer">
+  <scroll-view scroll-x="true" class="scroll_view_x">
+    <button class="mini-btn" type="{{ item.type === activeNav ? 'primary':'default' }}" size="mini" wx:for="{{ nav }}" bindtap="clickNav" data-type="{{item.type}}">{{ item.name }}</button>
+  </scroll-view>
+  <scroll-view class="scroll_view_y" scroll-y="true">
+    <view class="music_list_container">
+      <view class="music_list_item" wx:for="{{songlist}}" bindtap="toDetail">
+        <navigator url="../classDetail/classDetail?type={{ item.content_id || item.tid }}">
+          <image class="cover_img"
+            src="{{ item.cover_url_big || item.cover }}">
+          </image>
+          <text class="list_title">{{item.title}}</text>
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>

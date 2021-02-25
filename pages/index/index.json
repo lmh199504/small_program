@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "playAudio":"../../components/playAudio/playAudio",
+    "official": "../../components/official/official",
+    "friend": "../../components/friend/friend",
+    "search": "../../components/search/search",
+    "videocom": "../../components/videocom/videocom"
+  }  
+}

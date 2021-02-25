@@ -1,0 +1,34 @@
+<view class="mycontaoner">
+  <view class="searchBox"> 
+    <input bindinput='searchSong' class="searchData" placeholder="搜索歌曲或者歌手" placeholder-style="font-size:15px;"
+    bindfocus="bindfocus"
+    bindblur="bindblur"
+    ></input>
+    <scroll-view scroll-y style="height: calc( 100% -  140px)" wx:if="{{ showResult }}">
+      <view class="result_box">
+        <view class="song_list_box">
+          <view class="box_title">歌曲</view>
+          <view wx:for="{{ resultSong }}" class="song_item">
+            {{ item.name }} - {{ item.singer }}
+          </view>
+        </view>
+        <view class="song_list_box">
+          <view class="box_title">歌手</view>
+          <view wx:for="{{ resultSinger }}" class="singer_item">
+            <image src="{{ item.pic }}" class="singer_pic"></image>
+            <text class="singer_name">{{ item.name }}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="hotKey" >
+      <view class="hot_item" wx:for="{{ hotKey }}">
+        <text class="hot_index">{{ index + 1 }}</text>
+        <text class="hot_key">{{ item.k }}</text>
+        <text class="hot_num">{{ item.n }}</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>

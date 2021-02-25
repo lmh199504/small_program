@@ -1,0 +1,73 @@
+/* pages/classDetail/classDetail.wxss */
+.classInfo{
+  background: linear-gradient(to right, #39332e 0%,#363030 100%);
+  display: flex;
+  padding: 30rpx;
+  box-sizing: border-box;
+  color: #ffffff;
+  border-radius: 0 0 20rpx 20rpx;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.left image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.right{
+  margin-left: 40rpx;
+  width: calc(100vw - 280rpx);
+}
+.dissname text{
+  color: #ffffff;
+}
+.nickname image{
+  height: 25rpx;
+  width: 25rpx;
+}
+.nickname text{
+  color: #a39797;
+  font-size: 30rpx;
+}
+.desc{
+  color:#e5e5e5;
+  font-size: 35rpx;
+}
+/* 歌曲列表 */
+.mini-btn{
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+.music_item{
+  width: 100%;
+  height: 50px;
+  padding: 3%;
+  box-sizing: border-box;
+  display: flex;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+
+.music_cover{
+  width: 50px;
+  height: 50px;
+  border-radius:10px; 
+}
+.music_item_right{
+  padding-left: 10px;
+
+}
+.music_name{
+  color:rgb(92, 90, 91);
+  font-size: 25rpx;
+}
+.music_singer{
+  color:rgb(191, 191, 191);
+  font-size: 20rpx;
+}
+.right_icon{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}

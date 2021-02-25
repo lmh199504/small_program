@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/playMusic/playMusic",
+    "pages/logs/logs",
+    "pages/musicList/musicList",
+    "pages/meiri/meiri",
+    "pages/gedan/gedan",
+    "pages/paihang/paihang",
+    "pages/diantai/daintai",
+    "pages/zhibo/zhibo",
+    "pages/classDetail/classDetail",
+    "pages/singerDetail/singerDetail"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,31 @@
+/* components/videocom/videocom.wxss */
+.mycontainer{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.mv_item{
+  width: calc( 100% / 2);
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.mv_item image{
+  height: 220rpx;
+  width: 100%;
+  border-radius: 10rpx;
+}
+.mycontainer{
+  margin-bottom: 80px;
+}
+.mv_title{
+  font-size: 35rpx;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mv_singer{
+  color: #999;
+  font-size: 30rpx;
+}

@@ -1,0 +1,53 @@
+/* components/playAudio.wxss */
+.bottom_audio{
+  height: 40px;
+  width: 100%;
+  border-top: 1px solid rgb(243, 243, 243);
+  padding: 10px;
+  /* display: flex; */
+  position: relative;
+}
+
+.cover_img_container{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+.cover{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.musicInfo{
+  width: 200px;
+  position: absolute;
+  left:60px;
+}
+.musicName{
+  color:rgb(112, 112, 112);
+  font-size: 15px;
+}
+.musicSinger{
+  color:rgb(185, 185, 185);
+  font-size: 12px;
+}
+.stop_play{
+  position: absolute;
+  right: 80px;
+  width: 40px;
+  height: 40px;
+}
+.stop_play image{
+  width: 100%;
+  height: 100%;
+}
+.mneu{
+  position: absolute;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+}
+.mneu image{
+  width: 100%;
+  height: 100%;
+}

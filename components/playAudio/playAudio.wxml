@@ -1,0 +1,20 @@
+<!--components/playAudio.wxml-->
+<view class="bottom_audio">
+  <view class="cover_img_container" bindtap='toMusciList' >
+    <image src="{{currentSong.cover}}" class="cover"></image>
+  </view>
+  <view class="musicInfo">
+    <view class="musicName">
+      <text>{{currentSong.title}}</text>
+    </view>
+    <view class="musicSinger">
+      <text>{{ currentSong.singer && currentSong.singer[0].name }}</text>
+    </view>
+  </view>
+  <view class="stop_play" bindtap='playMusic'>
+    <image src="{{isPlayMusic?'../../src/images/stop2.png' : '../../src/images/play2.png'}}"></image>
+  </view>
+  <view class="mneu">
+    <image src="../../src/images/playlist2.png"></image>
+  </view> 
+</view>

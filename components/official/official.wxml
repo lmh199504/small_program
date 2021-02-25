@@ -1,0 +1,14 @@
+<!--components/official/official.wxml-->
+<view>
+  <text class="title">{{ songListData.title }}</text>
+</view>
+<view class="music_list_container">
+  <view class="music_list_item" wx:for="{{list}}">
+    <navigator url="../../pages/classDetail/classDetail?type={{ item.content_id }}">
+      <image class="cover_img"
+        src="{{ item.cover }}">
+      </image>
+      <text class="list_title">{{item.title}}</text>
+    </navigator>
+  </view>
+</view>
