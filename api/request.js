@@ -1,5 +1,5 @@
 
-const baseUrl = 'http://aigxb5.natappfree.cc'
+const baseUrl = 'http://kn5f6i.natappfree.cc'
 const request = (url,method,data) => {
   return new Promise((resolve,reject) => {
     wx.request({

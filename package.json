@@ -7,6 +7,7 @@
     "_sax@1.2.4@sax": "^1.2.4",
     "_xml2js@0.4.23@xml2js": "^0.4.23",
     "_xmlbuilder@11.0.1@xmlbuilder": "^11.0.1",
+    "miniprogram-computed": "^4.0.1",
     "sax": "^1.2.4",
     "xml2js": "^0.4.23",
     "xmlbuilder": "^11.0.1"

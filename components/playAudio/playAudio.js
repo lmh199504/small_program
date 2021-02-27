@@ -3,6 +3,7 @@
 
 const app = getApp()
 import create from '../../utils/create'
+const innerAudioContext = wx.getBackgroundAudioManager()
 create({
   /**
    * 组件的属性列表
@@ -11,7 +12,8 @@ create({
    * 组件的初始数据
    */
   data: {
-    currentSong: {}
+    currentSong: {},
+    isPlayMusic: false
   },
 
   /**
@@ -25,8 +27,7 @@ create({
   },
   methods: {
     playMusic() {
-      this.triggerEvent('myevent')
-    
+      this.store.toggleMusic()
     },
     toMusciList(){
       wx.navigateTo({

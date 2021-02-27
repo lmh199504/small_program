@@ -6,7 +6,9 @@ import create from '../../utils/create'
 import store from '../../store'
 import { getRecommend,getMusicVKey } from '../../api/index'
 import Song from '../../utils/Song'
+const computedBehavior = require('miniprogram-computed')
 create(store, {
+  behaviors: [computedBehavior],
   data: {
     showMyLove:false,
     searchSongList:[],
@@ -17,7 +19,11 @@ create(store, {
     new_song: [],
     currentSong: {}
   },
- 
+  watch: {
+    'nowIdx': function() {
+      console.log('nowIndex')
+    } 
+  },
   //顶部导航栏的切换
   swichNav: function (e) {
     var that = this;
@@ -36,7 +42,7 @@ create(store, {
   },
 
   onLoad: function () {
-
+    this.store.initFun()
   },
   onShow(){
     getRecommend().then(res => {
@@ -56,8 +62,8 @@ create(store, {
   playOneSong(e) {
     const songmid = e.currentTarget.dataset.songmid
     this.song = new Song(e.currentTarget.dataset.item)
-    console.log(this.song)
     this.store.data.currentSong = this.song
+    this.store.setIsPlay(true)
     this.update()
     this.getMusicVKey(songmid)
   },
@@ -72,5 +78,6 @@ create(store, {
         console.log('vip')
       }
     })
-  }
+  },
+
 })
