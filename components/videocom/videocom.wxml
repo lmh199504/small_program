@@ -1,7 +1,7 @@
 <scroll-view scroll-y style="height: 100%" bindscrolltolower="bindscrolltolower">
   <view class="mycontainer">
-    <view class="mv_item" wx:for="{{ mvList }}">
-      <image src="{{ item.picurl }}"></image>
+    <view class="mv_item" wx:for="{{ mvList }}" wx:key="index">
+      <image class="mv_item_img" src="{{ item.picurl }}"></image>
       <view class="mv_title">{{ item.title }}</view>
       <view class="mv_singer">{{ item.singers[0].name }}</view>
     </view>

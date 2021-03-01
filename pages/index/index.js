@@ -17,7 +17,8 @@ create(store, {
     nowIdx: 0,//当前swiper索引
     focus: [],
     new_song: [],
-    currentSong: {}
+    currentSong: {},
+    isPlayMusic: false
   },
   watch: {
     'nowIdx': function() {
@@ -57,27 +58,9 @@ create(store, {
       this.update();
     })
   },
-  changeStatus(){
-  },
   playOneSong(e) {
-    const songmid = e.currentTarget.dataset.songmid
-    this.song = new Song(e.currentTarget.dataset.item)
-    this.store.data.currentSong = this.song
-    this.store.setIsPlay(true)
+    const song = new Song(e.currentTarget.dataset.item)
+    this.store.setCurrentSong(song)
     this.update()
-    this.getMusicVKey(songmid)
-  },
-  getMusicVKey(songmid) {
-    getMusicVKey({ songmid }).then(res => {
-      if(res.data.response.req_0.data.midurlinfo[0].vkey !== ''){
-        this.song.src = res.data.response.playLists[0]
-        innerAudioContext.src = this.song.src
-        innerAudioContext.title = this.song.title
-        innerAudioContext.coverImgUrl = this.song.cover
-      }else{
-        console.log('vip')
-      }
-    })
-  },
-
+  }
 })

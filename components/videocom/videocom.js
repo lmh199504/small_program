@@ -26,7 +26,6 @@ Component({
    */
   lifetimes: {
     created() {
-      console.log('.......')
       this.getMV(this.data.params)
     }
   },

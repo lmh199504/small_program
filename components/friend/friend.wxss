@@ -14,7 +14,7 @@
   padding: 15rpx;
   box-sizing: border-box;
 }
-.singer_item image{
+.singer_item .singer_item_img{
   width: 100%;
   height: 220rpx;
   border-radius: 10rpx;

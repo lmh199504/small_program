@@ -201,4 +201,8 @@ page{
   position: fixed;
   bottom: 0;
   background: #fff;
+  transition: all in 0.4s;
 }
+.playAudio.hidden {
+  bottom: -60px;
+} 

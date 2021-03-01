@@ -10,7 +10,7 @@
   padding: 15rpx;
   box-sizing: border-box;
 }
-.mv_item image{
+.mv_item .mv_item_img{
   height: 220rpx;
   width: 100%;
   border-radius: 10rpx;
