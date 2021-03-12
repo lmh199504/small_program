@@ -33,6 +33,7 @@ export default {
     })
     innerAudioContext.onEnded(() => {
       console.log("播放结束")
+
     })
     innerAudioContext.onError(() => {
       console.log("播放错误")
@@ -62,7 +63,6 @@ export default {
           innerAudioContext.coverImgUrl = song.cover
           this.setIsPlay(true)
           var index = this.data.playList.findIndex( item => item.songmid === song.songmid )
-          console.log(index)
           if(index > -1) {
             this.data.playList.unshift(song)
             this.data.currentIndex = 0
@@ -76,13 +76,45 @@ export default {
       })
     } 
   },
-  resSetPlayList: function() {
-
+  resetPlayList: function(list) {
+    if(list.length === 0) {
+      return
+    }
+    this.data.playList = list
+    this.setCurrentSong(list[0])
   },
   setIndex: function(index) {
 
-  }
+  },
+  playNext: function() {
+    var { currentIndex, playList } =  this.data
+    if (playList.length === 0) {
+      return
+    }
+    currentIndex ++
+    if (currentIndex >=  playList.length) {
+      let song = playList[0]
+      this.setCurrentSong(song)
+    } else {
+      let song = playList[currentIndex]
+      this.setCurrentSong(song)
+    }
+  },
+  playPre: function() {
+    var { currentIndex, playList } =  this.data
+    if (playList.length === 0) {
+      return
+    }
+    currentIndex --
+    if (currentIndex <= -1) {
+      let song = playList[ playList.length - 1 ]
+      this.setCurrentSong(song)
+    } else {
+      let song = playList[currentIndex]
+      this.setCurrentSong(song)
+    }
 
+  }
   //默认 false，为 true 会无脑更新所有页面和组件
   // updateAll: true
 }

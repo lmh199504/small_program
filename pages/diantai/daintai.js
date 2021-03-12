@@ -1,6 +1,6 @@
 // pages/meiri/meiri.js
 const app = getApp();
-import { getRadioLists } from '../../api/index'
+import { getRadioLists,getRadioSong } from '../../api/index'
 Page({
 
   /**
@@ -26,6 +26,12 @@ Page({
       })
     }).catch(() => {
 
+    })
+  },
+  playAll(e) {
+    const radioid =  e.currentTarget.dataset.radioid
+    getRadioSong({
+      radioId: radioid
     })
   }
 })

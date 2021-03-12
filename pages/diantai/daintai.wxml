@@ -6,7 +6,7 @@
           {{ item.name }}
         </view>
         <view class="radio_wrapper">
-          <view class="radio_item" wx:for="{{ item.radioList }}">
+          <view class="radio_item" wx:for="{{ item.radioList }}" data-radioId="{{ item.radioId }}" bindtap="playAll">
             <image src="{{ item.radioImg }}"></image>
             <view class="radioName">{{ item.radioName }}</view>
             <wxs src="../../utils/filter.wxs" module="filter"/>

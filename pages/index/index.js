@@ -1,11 +1,9 @@
 //index.js
 //获取应用实例
-const app = getApp()
-const innerAudioContext = wx.getBackgroundAudioManager()
+import Song from '../../utils/Song'
 import create from '../../utils/create'
 import store from '../../store'
 import { getRecommend,getMusicVKey } from '../../api/index'
-import Song from '../../utils/Song'
 const computedBehavior = require('miniprogram-computed')
 create(store, {
   behaviors: [computedBehavior],

@@ -1,8 +1,10 @@
 // pages/meiri/meiri.js
 const app = getApp();
-const innerAudioContext = app.globalData.innerAudioContext;
+import create from '../../utils/create'
+import store from '../../store'
+import Song from '../../utils/Song'
 import { getHomeNewSong } from '../../api/index'
-Page({
+create(store,{
 
   /**
    * 页面的初始数据
@@ -85,8 +87,12 @@ Page({
     this.getHomeNewSong(e.target.dataset.type)
 
   },
-  playAll(){
-    
+  playAll() {
+    let playList = []
+    for(let i = 0; i < this.data.songlist.length; i++) {
+      playList.push(new Song(this.data.songlist[i]))
+    }
+    this.store.resetPlayList(playList)
   },
   getHomeNewSong(type) {
     wx.showLoading({

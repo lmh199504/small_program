@@ -1,6 +1,9 @@
 // pages/classDetail/classDetail.js
+import create from '../../utils/create'
+import store from '../../store'
 import { getSongListDetail } from '../../api/index'
-Page({
+import Song from '../../utils/Song'
+create(store,{
 
   /**
    * 页面的初始数据
@@ -41,5 +44,12 @@ Page({
       title: '加载中',
     })
     return getSongListDetail({ disstid })
+  },
+  playAll() {
+    let playList = []
+    for(let i = 0; i < this.data.songlist.length; i++) {
+      playList.push(new Song(this.data.songlist[i]))
+    }
+    this.store.resetPlayList(playList)
   }
 })
