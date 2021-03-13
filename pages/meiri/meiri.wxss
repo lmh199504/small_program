@@ -23,6 +23,7 @@ page{
   /* justify-content:space-between; */
   width: 94%;
   padding:1% 3%;
+  padding-bottom: 65px;
 }
 .music_list_item{
   width: calc(100% / 3);

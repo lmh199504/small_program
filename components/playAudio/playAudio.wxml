@@ -1,5 +1,5 @@
 <!--components/playAudio.wxml-->
-<view class="bottom_audio">
+<view class="bottom_audio {{ currentSong.songmid ? '' : 'hidden' }}">
   <view class="cover_img_container" bindtap='toMusciList' >
     <image src="{{currentSong.cover}}" class="cover"></image>
   </view>

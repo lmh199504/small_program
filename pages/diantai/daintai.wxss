@@ -6,9 +6,11 @@ page{
 }
 .scroll_view_y{
   height: 100%;
+  
 }
 .radio_container{
   padding: 15rpx;
+  padding-bottom: 65px;
 }
 .radioType{
   position: relative;

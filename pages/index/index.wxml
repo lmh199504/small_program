@@ -118,8 +118,4 @@
     </swiper-item>
   </swiper>
 </view>
-
-<view class="playAudio {{ currentSong.songmid ? '' : 'hidden' }}">
-  <playAudio cover_img="{{cover_img}}" musicName="{{musicName}}" musicSinger="{{musicSinger}}"
-    isPlayMusic="{{isPlayMusic}}" bind:myevent="changeStatus"></playAudio>
-</view>
+<playAudio></playAudio>

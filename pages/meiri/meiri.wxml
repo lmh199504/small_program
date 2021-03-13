@@ -20,5 +20,5 @@
       </view>
     </view>
   </scroll-view>
-
+  <playAudio></playAudio>
 </view>

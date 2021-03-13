@@ -10,7 +10,8 @@ export default {
     currentIndex: -1,
     bgAudio: null,
     isPlayMusic: false,
-    playList: []
+    playList: [],
+    pauseType: -1   // -1.默认 0.正常暂停 1.视频暂停
   },
   logMotto: function () {
     console.log(this.data.motto)
@@ -33,10 +34,12 @@ export default {
     })
     innerAudioContext.onEnded(() => {
       console.log("播放结束")
+      this.playNext()
 
     })
     innerAudioContext.onError(() => {
       console.log("播放错误")
+      this.playNext()
     })
   },
   toggleMusic:function() {
@@ -81,6 +84,7 @@ export default {
       return
     }
     this.data.playList = list
+    this.data.currentIndex = 0
     this.setCurrentSong(list[0])
   },
   setIndex: function(index) {
@@ -96,6 +100,7 @@ export default {
       let song = playList[0]
       this.setCurrentSong(song)
     } else {
+      console.log(currentIndex)
       let song = playList[currentIndex]
       this.setCurrentSong(song)
     }

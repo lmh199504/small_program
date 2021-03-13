@@ -1,7 +1,9 @@
 // pages/meiri/meiri.js
-const app = getApp();
+import Song from '../../utils/Song'
+import create from '../../utils/create'
+import store from '../../store'
 import { getRadioLists,getRadioSong } from '../../api/index'
-Page({
+create(store,{
 
   /**
    * 页面的初始数据
@@ -30,8 +32,15 @@ Page({
   },
   playAll(e) {
     const radioid =  e.currentTarget.dataset.radioid
+    let songList = []
     getRadioSong({
       radioId: radioid
+    }).then(res => {
+      var track_list = res.data.data.songlist.data.track_list
+      for(var i = 0;i < track_list.length; i++){
+        songList.push(new Song(track_list[i]))
+      }
+      this.store.resetPlayList(songList)
     })
   }
 })

@@ -1,9 +1,9 @@
 // components/playAudio.js
 
 
-const app = getApp()
+
 import create from '../../utils/create'
-const innerAudioContext = wx.getBackgroundAudioManager()
+
 create({
   /**
    * 组件的属性列表

@@ -20,128 +20,15 @@ create(store,{
     currentSong: {}
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-   
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
- 
-
-  },
-
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   //播放事件
-
   playMusic() {
-
-    if (this.data.isPlayMusic == false) {
-      innerAudioContext.play()
-    } else {
-      innerAudioContext.pause()
-    }
-    this.setData({ isPlayMusic: !this.data.isPlayMusic });
-    app.globalData.isPlayMusic = this.data.isPlayMusic;
-
-
+    this.toggleMusic()
   },
   nextMusic() {
-    //下一首
-    clearInterval(this.data.timer)
-    if (this.data.currentIndex + 1 == this.data.musicList.length) {
-      this.setData({
-        currentIndex: 0
-      })
-    } else {
-      this.setData({
-        currentIndex: this.data.currentIndex + 1
-      })
-    }
-    innerAudioContext.coverImgUrl = this.data.musicList[this.data.currentIndex].cover;
-    innerAudioContext.title = this.data.musicList[this.data.currentIndex].name;
-    innerAudioContext.src = this.data.musicList[this.data.currentIndex].src;
-    this.setData({
-      currentMusicSinger: this.data.musicList[this.data.currentIndex].singer,
-      currentMusicName: this.data.musicList[this.data.currentIndex].name,
-      currentCover: this.data.musicList[this.data.currentIndex].cover,
-      bgCover: this.data.musicList[this.data.currentIndex].cover
-    })
-    app.globalData.cover_img = this.data.musicList[this.data.currentIndex].cover;
-    app.globalData.musicName = this.data.musicList[this.data.currentIndex].name;
-    app.globalData.musicSinger = this.data.musicList[this.data.currentIndex].singer;
+    this.store.playNext()
   },
   prevMusic() {
-    // console.log('播放上一首')
-    clearInterval(this.data.timer)
-    if (this.data.currentIndex == 0) {
-      this.setData({
-        currentIndex: (this.data.musicList.length - 1)
-      })
-    } else {
-      this.setData({
-        currentIndex: this.data.currentIndex - 1
-      })
-    }
-    innerAudioContext.coverImgUrl = this.data.musicList[this.data.currentIndex].cover;
-    innerAudioContext.title = this.data.musicList[this.data.currentIndex].name;
-    innerAudioContext.src = this.data.musicList[this.data.currentIndex].src;
-    this.setData({
-      currentMusicSinger: this.data.musicList[this.data.currentIndex].singer,
-      currentMusicName: this.data.musicList[this.data.currentIndex].name,
-      currentCover: this.data.musicList[this.data.currentIndex].cover,
-      bgCover: this.data.musicList[this.data.currentIndex].cover
-    })
-    app.globalData.cover_img = this.data.musicList[this.data.currentIndex].cover;
-    app.globalData.musicName = this.data.musicList[this.data.currentIndex].name;
-    app.globalData.musicSinger = this.data.musicList[this.data.currentIndex].singer;
+    this.store.playPre()
   },
   //切换模式
   changeMode() {

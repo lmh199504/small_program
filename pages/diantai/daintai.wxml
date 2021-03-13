@@ -1,12 +1,12 @@
 <view class="mycontainer">
   <scroll-view scroll-y class="scroll_view_y" refresher-enabled="true">
     <view class="radio_container">
-      <view wx:for="{{ radioList }}">
+      <view wx:for="{{ radioList }}"  wx:key="index">
         <view class="radioType">
           {{ item.name }}
         </view>
         <view class="radio_wrapper">
-          <view class="radio_item" wx:for="{{ item.radioList }}" data-radioId="{{ item.radioId }}" bindtap="playAll">
+          <view class="radio_item" wx:for="{{ item.radioList }}" wx:key="index" data-radioId="{{ item.radioId }}" bindtap="playAll">
             <image src="{{ item.radioImg }}"></image>
             <view class="radioName">{{ item.radioName }}</view>
             <wxs src="../../utils/filter.wxs" module="filter"/>
@@ -16,4 +16,5 @@
       </view>
     </view>
   </scroll-view>
+  <playAudio></playAudio>
 </view>
