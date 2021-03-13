@@ -3,7 +3,7 @@
 import Song from '../../utils/Song'
 import create from '../../utils/create'
 import store from '../../store'
-import { getRecommend,getMusicVKey } from '../../api/index'
+import { getRecommend } from '../../api/index'
 const computedBehavior = require('miniprogram-computed')
 create(store, {
   behaviors: [computedBehavior],
@@ -16,7 +16,8 @@ create(store, {
     focus: [],
     new_song: [],
     currentSong: {},
-    isPlayMusic: false
+    isPlayMusic: false,
+    showPlayList: false
   },
   watch: {
     'nowIdx': function() {

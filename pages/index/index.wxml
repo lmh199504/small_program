@@ -118,4 +118,5 @@
     </swiper-item>
   </swiper>
 </view>
+<playListCom wx:if="{{showPlayList}}"></playListCom>
 <playAudio></playAudio>

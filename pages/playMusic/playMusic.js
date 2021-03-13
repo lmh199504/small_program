@@ -13,16 +13,23 @@ create(store,{
     currentMode: 'xindong',
     currentModeImg: '../../src/images/mode.png',
     isMusicCover: true,
-    duration: null,
-    currentTime: 0,
+    musicTime: {
+      duration: 0,
+      currentTime: 0,
+      progress: 0
+    },
     timer: null,
     progress: 0,
-    currentSong: {}
+    currentSong: {},
+    showPlayList: false // 显示播放列表
   },
-
+  showList() {
+    this.store.data.showPlayList = true
+    this.store.update()
+  },
   //播放事件
   playMusic() {
-    this.toggleMusic()
+    this.store.toggleMusic()
   },
   nextMusic() {
     this.store.playNext()

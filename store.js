@@ -1,5 +1,6 @@
 const innerAudioContext = wx.getBackgroundAudioManager()
 import { getMusicVKey } from './api/index'
+import { formatMusicTime } from './utils/util'
 export default {
   data: {
     recommendData: {},
@@ -11,7 +12,13 @@ export default {
     bgAudio: null,
     isPlayMusic: false,
     playList: [],
-    pauseType: -1   // -1.默认 0.正常暂停 1.视频暂停
+    pauseType: -1,   // -1.默认 0.正常暂停 1.视频暂停
+    musicTime: {
+      currentTime: 0,
+      duration: 0,
+      progress:0
+    },
+    showPlayList: false // 显示播放列表
   },
   logMotto: function () {
     console.log(this.data.motto)
@@ -41,6 +48,17 @@ export default {
       console.log("播放错误")
       this.playNext()
     })
+    innerAudioContext.onTimeUpdate((e) => {
+      var duration = innerAudioContext.duration
+      var currentTime = innerAudioContext.currentTime
+      this.data.musicTime.progress = (currentTime / duration) * 100
+      duration = formatMusicTime(duration)
+      currentTime = formatMusicTime(currentTime)
+      this.data.musicTime.duration = duration
+      this.data.musicTime.currentTime = currentTime
+      this.data.musicTime.progress = 
+      this.update()
+    })
   },
   toggleMusic:function() {
     if(this.data.isPlayMusic === false && innerAudioContext.paused ===  true) {
@@ -67,10 +85,10 @@ export default {
           this.setIsPlay(true)
           var index = this.data.playList.findIndex( item => item.songmid === song.songmid )
           if(index > -1) {
+            this.data.currentIndex = index
+          } else {
             this.data.playList.unshift(song)
             this.data.currentIndex = 0
-          } else {
-            this.data.currentIndex = index
           }
           this.update()
         }else{
@@ -100,7 +118,6 @@ export default {
       let song = playList[0]
       this.setCurrentSong(song)
     } else {
-      console.log(currentIndex)
       let song = playList[currentIndex]
       this.setCurrentSong(song)
     }

@@ -14,7 +14,7 @@
   <view class="stop_play" bindtap='playMusic'>
     <image class="stopPlayImg" src="{{isPlayMusic?'../../src/images/stop2.png' : '../../src/images/play2.png'}}"></image>
   </view>
-  <view class="mneu">
+  <view class="mneu" bindtap="showList">
     <image class="menuImage" src="../../src/images/playlist2.png"></image>
   </view> 
 </view>

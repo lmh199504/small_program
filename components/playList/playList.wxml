@@ -1,0 +1,20 @@
+<!--components/playList/playList.wxml-->
+
+<view class="playList">
+  <view class="mask" bindtap="closePlayList"></view>
+  <view class="list_container">
+    <scroll-view scroll-y class="scroll_view">
+      <view class="scroll_container">
+        <view wx:for="{{ playList }}" wx:key="index" class="music_item">
+          <view>
+            <view class="songNmae">{{ item.title }}</view>
+            <view class="singerName">{{ item.singer[0].name }}</view>
+          </view>
+          <view>
+            播放
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

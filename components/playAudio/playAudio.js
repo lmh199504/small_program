@@ -13,7 +13,8 @@ create({
    */
   data: {
     currentSong: {},
-    isPlayMusic: false
+    isPlayMusic: false,
+    showPlayList: false //显示播放列表
   },
 
   /**
@@ -36,6 +37,10 @@ create({
         fail: function(res) {},
         complete: function(res) {},
       })
+    },
+    showList() {
+      this.store.data.showPlayList =  true
+      this.store.update()
     }
   },
 

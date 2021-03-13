@@ -70,11 +70,13 @@
 
 
   <view class="progress_container">
-      <view style="width:10%;"><text class="current_tiem">{{currentTime}}</text></view>
-      <view style="width:80%; padding:10px;box-sizing:border-box;"><progress stroke-width="1" border-radius="2" percent="{{progress}}"></progress></view>
-      <view style="width:10%;"><text class="duration_time">{{duration}}</text></view>  
+      <view style="width:10%;"><text class="current_tiem">{{musicTime.currentTime}}</text></view>
+      <view style="width:80%; padding:10px;box-sizing:border-box;">
+        <progress percent="{{ musicTime.progress }}" color="#10AEFF" active active-mode="forwards" stroke-width="3" />
+      </view>
+      <view style="width:10%;"><text class="duration_time">{{musicTime.duration}}</text></view>  
   </view>
-
+  
 
 
   <view class="play_menu_container">
@@ -90,7 +92,7 @@
     <view class="play_menu_item">
       <image src="../../src/images/next.png" bindtap='nextMusic'></image>
     </view>
-    <view class="play_menu_item">
+    <view class="play_menu_item" bindtap="showList">
       <image src="../../src/images/playlist.png"></image>
     </view>
   </view>
@@ -103,3 +105,5 @@
 <view class="background_img">
   <image src="{{bgCover}}" style="width:100%;height:100%;"></image>
 </view>
+
+<playListCom wx:if="{{ showPlayList }}"></playListCom>

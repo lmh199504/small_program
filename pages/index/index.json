@@ -4,6 +4,7 @@
     "official": "../../components/official/official",
     "friend": "../../components/friend/friend",
     "search": "../../components/search/search",
-    "videocom": "../../components/videocom/videocom"
+    "videocom": "../../components/videocom/videocom",
+    "playListCom": "../../components/playList/playList"
   }  
 }
