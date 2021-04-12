@@ -24,7 +24,6 @@ const formatMusicTime = second => {
   if(m < 9) {
     m =  '0' + m
   }
-  console.log(m + ':' + s)
   return m + ':' + s
 }
 

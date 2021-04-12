@@ -10,35 +10,8 @@
 
 
 <view class="music_Lyric" wx:if="{{!isMusicCover}}" bindtap='changeCover'>
-  <scroll-view style="height:100%;width:100%;" >
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
-    <view>我是歌词列表</view>
+  <scroll-view style="height:100%;width:100%;" scroll-y scroll-into-view="{{ current_text }}" scroll-with-animation="true">
+    <view wx:for="{{ currentLyric&&currentLyric.lines }}" wx:key="index" class="lyric_item {{ currentLine === index? 'current':''  }}" id="{{ 'lyric_item'+index }}">{{ item.txt }}</view>
   </scroll-view>
   
 

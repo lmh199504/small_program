@@ -80,7 +80,7 @@ page{
   /* opacity: 0; */
   position: absolute;
   top: 40px;
-  line-height: 400px;
+  /* line-height: 400px; */
   text-align: center;
 }
 .music_cover image{
@@ -118,4 +118,16 @@ page{
 @keyframes rotating {
   from { transform: rotate(0) }
   to { transform: rotate(360deg) }
+}
+
+.lyric_item{
+  height: auto;
+  width: 100%;
+  line-height: 75rpx;
+  font-size: 28rpx;
+  transition: all 0.4s ease;
+}
+.lyric_item.current{
+  color: #31c27c;
+  font-size: 30rpx;
 }

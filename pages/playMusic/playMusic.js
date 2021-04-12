@@ -1,6 +1,6 @@
 // pages/playMusic/playMusic.js
 const app = getApp()
-const innerAudioContext = app.globalData.innerAudioContext
+const innerAudioContext = wx.getBackgroundAudioManager()
 import create from '../../utils/create'
 import store from '../../store'
 create(store,{
@@ -9,7 +9,7 @@ create(store,{
    * 页面的初始数据
    */
   data: {
-    isPlayMusic: app.globalData.isPlayMusic,
+    isPlayMusic: false,
     currentMode: 'xindong',
     currentModeImg: '../../src/images/mode.png',
     isMusicCover: true,
@@ -21,7 +21,10 @@ create(store,{
     timer: null,
     progress: 0,
     currentSong: {},
-    showPlayList: false // 显示播放列表
+    showPlayList: false, // 显示播放列表
+    currentLyric: null,
+    currentLine: 0,
+    current_text: ''
   },
   showList() {
     this.store.data.showPlayList = true
@@ -100,5 +103,5 @@ create(store,{
         }
       }
     })
-  }
+  },
 })
