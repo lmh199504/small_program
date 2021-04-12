@@ -2,7 +2,10 @@
 import Parser from '../../utils/xmldom/dom-parser'
 import { getSingerDesc, getSingerStarNum, getSingerHotsong,getSingerAblumList,getSingerMV } from '../../api/index'
 import { formatNum } from '../../utils/index'
-Page({
+import Song from '../../utils/Song'
+import store from '../../store'
+import create from '../../utils/create'
+create(store, {
 
   /**
    * 页面的初始数据
@@ -16,7 +19,11 @@ Page({
     tabIndex: 0,
     hotSong: [],
     albumList: [],
-    mvList: []
+    mvList: [],
+    hotParam: {
+      order: 1,
+      limit: 10
+    }
   },
 
   /**
@@ -24,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.singerMid = options.singerMid
     this.getSingerDesc(options.singerMid)
     wx.setNavigationBarTitle({
       title: options.singer_name
@@ -70,14 +78,17 @@ Page({
     })
   },
   getSingerHotsong(singermid) {
+
     getSingerHotsong({singermid}).then(res => {
+      const { hotSong } = this.data 
       this.setData({
-        hotSong: res.data.data.singerSongList.data.songList
+        hotSong: hotSong.concat(res.data.data.singerSongList.data.songList)
       })
     })
   },
   getSingerAblumList(singermid) {
     getSingerAblumList({singermid}).then(res => {
+      
       this.setData({
         albumList: res.data.data.getAlbumList.data.albumList
       })
@@ -109,5 +120,25 @@ Page({
     this.setData({
       tabIndex: 3
     })
+  },
+  onReachBottom: function() {
+    // 页面触底时执行
+    // if(this.data.tabIndex === 0) {
+    //   const { hotParam } = this.data
+    //   hotParam.page ++
+    //   this.setData({
+    //     hotParam
+    //   },() => {
+    //     this.getSingerHotsong(this.singerMid)
+    //   })
+    // }
+  },
+  playAll() {
+    let playList = []
+    for(let i = 0; i < this.data.hotSong.length; i++) {
+      playList.push(new Song(this.data.hotSong[i].songInfo))
+    }
+    console.log(playList)
+    this.store.resetPlayList(playList)
   }
 })

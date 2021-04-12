@@ -14,7 +14,7 @@
         </view>
         <view class="song_list_box">
           <view class="box_title">歌手</view>
-          <view wx:for="{{ resultSinger }}" class="singer_item" wx:key="index">
+          <view wx:for="{{ resultSinger }}" class="singer_item" wx:key="index" bindtap="toSingerDetail" data-singer="{{ item }}">
             <image src="{{ item.pic }}" class="singer_pic"></image>
             <text class="singer_name">{{ item.name }}</text>
           </view>

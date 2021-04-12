@@ -65,6 +65,12 @@ Component({
           showResult:false
         })
       },200)
+    },
+    toSingerDetail(e) {
+      var { singer } = e.currentTarget.dataset
+      wx.navigateTo({
+        url: `/pages/singerDetail/singerDetail?singerMid=${ singer.mid }&singer_name=${ singer.name }&singer_pic=${ singer.pic }`,
+      })
     }
   }
 })

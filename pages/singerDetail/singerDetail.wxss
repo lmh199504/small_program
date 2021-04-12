@@ -94,3 +94,8 @@ page{
   line-height: 60rpx;
   text-indent: 2rem;
 }
+
+.mini-btn {
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
