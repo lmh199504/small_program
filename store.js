@@ -109,6 +109,9 @@ export default {
           }) 
         } else {
           console.log('vip')
+          setTimeout(() => {
+            this.playNext()
+          }, 2000)  
         }
       })
     }
