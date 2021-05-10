@@ -1,0 +1,23 @@
+/* pages/playVideo/playVideo.wxss */
+
+page{
+  height: 100%;
+  overflow: hidden;
+}
+.swiper_page{
+  height: 100%;
+  background: #000000;
+  color: #ffffff;
+}
+.swiper_wrapper{
+  height: 100%;
+}
+.my_swiper{
+  height: 100%;
+}
+.my_swiper video{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

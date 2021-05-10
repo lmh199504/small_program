@@ -1,0 +1,10 @@
+<!--pages/playVideo/playVideo.wxml-->
+<view class="swiper_page">
+  <view class="swiper_wrapper"> 
+    <swiper vertical="{{true}}" class="my_swiper" bindchange="swiperChange" >
+      <swiper-item wx:for="{{ mvList }}">
+        <video src="{{item.url}}" id="video{{index}}" autoplay=""></video>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

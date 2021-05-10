@@ -10,7 +10,8 @@
     "pages/diantai/daintai",
     "pages/zhibo/zhibo",
     "pages/classDetail/classDetail",
-    "pages/singerDetail/singerDetail"
+    "pages/singerDetail/singerDetail",
+    "pages/playVideo/playVideo"
   ],
   "requiredBackgroundModes": [
     "audio"

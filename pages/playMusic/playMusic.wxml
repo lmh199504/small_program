@@ -76,7 +76,7 @@
 <!-- //背景 -->
 <view class="mask"></view>
 <view class="background_img">
-  <image src="{{bgCover}}" style="width:100%;height:100%;"></image>
+  <image src="{{currentSong.cover}}" style="width:100%;height:100%;"></image>
 </view>
 
 <playListCom wx:if="{{ showPlayList }}"></playListCom>

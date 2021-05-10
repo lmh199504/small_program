@@ -19,3 +19,5 @@ export const getMusicVKey = (data) => request('/getMusicVKey', 'GET', data)
 export const getRadioSong = (data) => request('/getRadioSong', "GET", data)
 // 获取歌词信息
 export const reqGetLyric = (data) => request('/getLyric',"GET", data)
+//获取MV播放信息 vid
+export const reqGetMvPlay = (data) => request('/getMvPlay',"GET", data)
